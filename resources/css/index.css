@@ -1,0 +1,160 @@
+@font-face {
+  font-family: LeagueGothic;
+  src: url("../fonts/LeagueGothic-Regular.otf");
+}
+
+body {
+  background-color: white;
+}
+
+.letter {
+  color: #383838;
+  font-size: 80px;
+  font-weight: bold;
+  font-family: LeagueGothic;
+  position: absolute;
+  transform: translateX(60px);
+  top: -70px;
+}
+
+.letter1 {
+  right: 120px;
+  animation: move 8s infinite;
+  animation-fill-mode: backwards;
+  animation-timing-function: cubic-bezier(.56, .2, .37, .8);
+  animation-delay: 0s;
+}
+
+.letter2 {
+  right: 80px;
+  animation: move 8s infinite;
+  animation-fill-mode: backwards;
+  animation-timing-function: cubic-bezier(.56, .2, .37, .8);
+  animation-delay: 0.5s;
+}
+
+.letter3 {
+  right: 40px;
+  animation: move 8s infinite;
+  animation-fill-mode: backwards;
+  animation-timing-function: cubic-bezier(.56, .2, .37, .8);
+  animation-delay: 1s;
+}
+
+.letter4 {
+  right: 0px;
+  animation: move 8s infinite;
+  animation-fill-mode: backwards;
+  animation-timing-function: cubic-bezier(.56, .2, .37, .8);
+  animation-delay: 1.5s;
+}
+
+.center {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.moveout .letter1 .lettercontainer {
+  animation: moveout 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.72, 0, .86, .74);
+  animation-delay: 0s;
+}
+
+.moveout .letter2 .lettercontainer {
+  animation: moveout 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.72, 0, .86, .74);
+  animation-delay: 0.25s;
+}
+
+.moveout .letter3 .lettercontainer {
+  animation: moveout 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.72, 0, .86, .74);
+  animation-delay: 0.5s;
+}
+
+.moveout .letter4 .lettercontainer {
+  animation: moveout 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.72, 0, .86, .74);
+  animation-delay: 0.75s;
+}
+
+.loadingbar {
+  position:fixed;
+  height:10px;
+  width:100%;
+  background-color:#ECECEC;
+  overflow:hidden;
+  top:0px;
+  left:0px;
+  transition: opacity .4s;
+}
+
+.loadingbar .loadingbarinside1 {
+  position:absolute;
+  height:10px;
+  background-color:#383838;
+  animation: loadingbar 2.3s infinite linear;
+}
+.loadingbar .loadingbarinside2 {
+  position:absolute;
+  height:10px;
+  background-color:#383838;
+  animation: loadingbar 2.3s infinite linear;
+  animation-delay:1.15s;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(60px) translateY(20px);
+  }
+
+  50% {
+    transform: translateX(60px) translateY(-20px);
+  }
+
+  100% {
+    transform: translateX(60px) translateY(20px);
+  }
+}
+
+@keyframes moveout {
+  0% {
+    transform: translateY(0px);
+    opacity: 1
+  }
+
+  70% {
+    opacity: 0
+  }
+
+  100% {
+    transform: translateY(600%);
+    opacity: 0
+  }
+}
+
+@keyframes loadingbar {
+  0% {
+    /* transform: translateX(-30vw) */
+    left:-50%;
+    width:20%;
+  }
+
+  50% {
+    width: 40%;
+    transform:translateX(20%);
+  }
+
+  100% {
+    /* transform: translateX(100vw) */
+    left:100vw;
+    width:80%;
+    transform:translateX(20%);
+  }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Barcode Scanner</title>
+  <script src="./resources/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="./resources/css/index.css">
+  <style media="screen">
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="loadingbar" style="opacity:0;">
+      <div class="loadingbarinside1"></div>
+      <div class="loadingbarinside2"></div>
+    </div>
+  </div>
+  <div class="center">
+    <div class="letter letter1">
+      <div class="lettercontainer">S</div>
+    </div>
+    <div class="letter letter2">
+      <div class="lettercontainer">C</div>
+    </div>
+    <div class="letter letter3">
+      <div class="lettercontainer">A</div>
+    </div>
+    <div class="letter letter4">
+      <div class="lettercontainer">N</div>
+    </div>
+  </div>
+
+  <script>
+    let waitingforscan = true;
+
+    function moveout() {
+      $(".center").addClass("moveout");
+      $(".loadingbar").css("opacity","1");
+    }
+
+    function movein() {
+      $(".center").hide();
+      $(".center").removeClass("moveout");
+      $(".center").fadeIn(700);
+      $(".loadingbar").css("opacity","0");
+    }
+
+    $(document).on('keypress', function(e) {
+      if (e.which == 13) {
+        switch (waitingforscan) {
+          case true:
+            waitingforscan = false;
+            moveout();
+            break;
+          case false:
+            waitingforscan = true;
+            movein();
+            break;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
